@@ -1,0 +1,4 @@
+autopep8==1.5.4
+flake8==3.8.4
+pytube==10.0.0
+youtube-search==1.1.1
