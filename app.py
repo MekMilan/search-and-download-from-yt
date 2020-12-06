@@ -11,8 +11,11 @@ titleVideos = []
 
 os.system("cls")
 
+print('+-------------------------------+\n|    Youtube Downloader Tool    |\n+-------------------------------+\n')
+
+# inicia a pesquisa por termos no youtube
 term = input("Pesquisar por qual termo: ")
-results = YoutubeSearch(term, max_results=15).to_dict()
+results = YoutubeSearch(term, max_results=10).to_dict()
 
 os.system("cls")
 
@@ -33,7 +36,7 @@ print(f'Video selecionado: {titleVideos[choose]}')
 print('')
 
 # print das opcoes
-print('[a] apenas o audio(mp4 - 128 kbps)\n[v] video e audio(30fps - 720p)')
+print('[a] apenas o audio(mp4 - 128 kbps)\n[v] video e audio(30fps - 720p)') #\n\n[x] para pesquisar novamente
 print('')
 
 # escolhe oque fazer e entao executa a tarefa
@@ -61,6 +64,8 @@ elif watToDo == "v":
     # faz o processo de download do video e audio
     video = pytube.YouTube(url)    
     stream = video.streams.get_by_itag(22)
-    print(f"Downloading ...")
+    print(f"Downloading... {stream.title}")
     stream.download()
+    print('')
     print("Done !")
+    print('')
